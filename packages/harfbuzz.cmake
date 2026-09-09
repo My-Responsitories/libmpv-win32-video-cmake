@@ -1,7 +1,6 @@
 ExternalProject_Add(harfbuzz
     DEPENDS
         freetype2
-        libpng
     GIT_REPOSITORY https://github.com/harfbuzz/harfbuzz.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_REMOTE_NAME origin
@@ -22,6 +21,7 @@ ExternalProject_Add(harfbuzz
         -Dtests=disabled
         -Ddocs=disabled
         -Dbenchmark=disabled
+        -Dpng=disabled
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
     INSTALL_COMMAND ${EXEC} ninja -C <BINARY_DIR> install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1

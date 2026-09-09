@@ -1,31 +1,24 @@
 ExternalProject_Add(ffmpeg
         DEPENDS
         amf-headers
-        avisynth-headers
         ${nvcodec_headers}
         lcms2
-        libass
         libmodplug
         libsoxr
         libbs2b
         libwebp
-        libmysofa
-        fontconfig
         harfbuzz
         opus
-        speex
         vorbis
         libvpl
         shaderc
         libplacebo
         dav1d
-        openal-soft
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--sparse --filter=tree:0"
     GIT_TAG release/7.1
     GIT_CLONE_POST_COMMAND "sparse-checkout set --no-cone /* !tests/ref/fate"
-    PATCH_COMMAND ${EXEC} git apply ${CMAKE_CURRENT_SOURCE_DIR}/ffmpeg-*.patch
     UPDATE_COMMAND ""
     CONFIGURE_COMMAND ${EXEC} CONF=1 <SOURCE_DIR>/configure
         --cross-prefix=${TARGET_ARCH}-
@@ -90,11 +83,7 @@ ExternalProject_Add(ffmpeg
         --enable-libbs2b
         --enable-libwebp
         --enable-libsoxr
-        --enable-libspeex
-        --enable-libmysofa
         --enable-libshaderc
-        --enable-libfribidi
-        --enable-libfreetype
 
         --enable-avutil
         --enable-avcodec
@@ -104,11 +93,7 @@ ExternalProject_Add(ffmpeg
         --enable-swresample
 
         --enable-decoder=flv
-        --enable-decoder=h263
-        --enable-decoder=h263i
-        --enable-decoder=h263p
         --enable-decoder=h264*
-        --enable-decoder=mpeg1video
         --enable-decoder=mpeg2*
         --enable-decoder=mpeg4*
         --enable-decoder=vp6
@@ -132,8 +117,6 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=eac3
         --enable-decoder=flac
         --enable-decoder=gsm*
-        --enable-decoder=mp1*
-        --enable-decoder=mp2*
         --enable-decoder=mp3*
         --enable-decoder=mpc*
         --enable-decoder=opus
@@ -148,19 +131,8 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=dsd*
         --enable-decoder=dca
 
-        --enable-decoder=ssa
-        --enable-decoder=ass
-        --enable-decoder=dvbsub
-        --enable-decoder=dvdsub
         --enable-decoder=srt
-        --enable-decoder=stl
-        --enable-decoder=subrip
-        --enable-decoder=subviewer
-        --enable-decoder=subviewer1
-        --enable-decoder=text
-        --enable-decoder=vplayer
         --enable-decoder=webvtt
-        --enable-decoder=movtext
 
         --enable-demuxer=concat
         --enable-demuxer=data
@@ -175,13 +147,10 @@ ExternalProject_Add(ffmpeg
         --enable-demuxer=mpegts
         --enable-demuxer=mpegvideo
         --enable-demuxer=hevc
-        --enable-demuxer=rtsp
         --enable-demuxer=mpeg4
         --enable-demuxer=avi
         --enable-demuxer=av1
         --enable-demuxer=matroska
-        --enable-demuxer=dash
-        --enable-demuxer=webm_dash_manifest
 
         --enable-muxer=webp
 
@@ -200,25 +169,18 @@ ExternalProject_Add(ffmpeg
         --enable-demuxer=mp3
         --enable-demuxer=mpc*
         --enable-demuxer=pcm*
-        --enable-demuxer=rm
         --enable-demuxer=shorten
         --enable-demuxer=tak
         --enable-demuxer=tta
         --enable-demuxer=wav
         --enable-demuxer=wv
         --enable-demuxer=xwma
-        --enable-demuxer=dsf
         --enable-demuxer=truehd
         --enable-demuxer=dts
         --enable-demuxer=dtshd
 
-        --enable-demuxer=ass
         --enable-demuxer=srt
-        --enable-demuxer=stl
         --enable-demuxer=webvtt
-        --enable-demuxer=subviewer
-        --enable-demuxer=subviewer1
-        --enable-demuxer=vplayer
 
         --enable-parser=h264
         --enable-parser=hevc
@@ -255,7 +217,7 @@ ExternalProject_Add(ffmpeg
         --enable-protocol=tcp
         --enable-protocol=tls
 
-        --enable-encoder=webp_anim
+        --enable-encoder=libwebp_anim
 
         --enable-network
 

@@ -4,8 +4,6 @@ ExternalProject_Add(libass
         freetype2
         fribidi
         libiconv
-        fontconfig
-        libunibreak
     GIT_REPOSITORY https://github.com/libass/libass.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
@@ -16,10 +14,10 @@ ExternalProject_Add(libass
         --cross-file=${MESON_CROSS}
         --buildtype=release
         --default-library=static
-        -Dfontconfig=enabled
+        -Dfontconfig=disabled
         -Ddirectwrite=enabled
         -Dasm=enabled
-        -Dlibunibreak=enabled
+        -Dlibunibreak=disabled
         -Dtest=disabled
         -Dcompare=disabled
         -Dprofile=disabled

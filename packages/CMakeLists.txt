@@ -14,7 +14,6 @@ list(APPEND ep
     vorbis
     opus-dnn
     opus
-    speex
     libmodplug
     libvpx
     xvidcore
@@ -32,15 +31,10 @@ list(APPEND ep
     harfbuzz
     libsoxr
     graphengine
-    libzimg
-    fontconfig
-    libunibreak
     libass
     libvpl
     amf-headers
-    avisynth-headers
     nvcodec-headers
-    libmysofa
     aom
     xxhash
     dav1d
@@ -58,7 +52,6 @@ list(APPEND ep
     vulkan-header
     vulkan
     libsdl2
-    openal-soft
     libopenmpt
     shaderc
     glad
@@ -66,8 +59,6 @@ list(APPEND ep
     libdovi
     libplacebo
     libva
-    libzvbi
-    libsixel
     ffmpeg
     mpv
     mpv-packaging
@@ -100,7 +91,7 @@ list(LENGTH ep ep_length)
 message(STATUS "Parsing ${ep_length} packages")
 
 # Exclude packages which dont depend on mpv when update
-list(APPEND removed "flac" "opusfile" "libopusenc" "opus-tools" "termcap" "readline" "cryptopp" "sqlite" "libuv" "libsodium" "megasdk" "libsixel" "curl" "libressl" "mbedtls" "nettle" "gmp")
+list(APPEND removed "flac" "opusfile" "libopusenc" "opus-tools" "termcap" "readline" "cryptopp" "sqlite" "libuv" "libsodium" "megasdk" "curl" "libressl" "mbedtls" "nettle" "gmp")
 list(REMOVE_ITEM repo ${removed})
 list(REMOVE_ITEM ep ${removed})
 list(TRANSFORM repo APPEND "-force-update" OUTPUT_VARIABLE update)

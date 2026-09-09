@@ -1,8 +1,4 @@
 ExternalProject_Add(libwebp
-    DEPENDS
-        zlib
-        libpng
-        libjpeg
     GIT_REPOSITORY https://chromium.googlesource.com/webm/libwebp.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
@@ -24,6 +20,7 @@ ExternalProject_Add(libwebp
         -DWEBP_BUILD_DWEBP=OFF
         -DWEBP_BUILD_GIF2WEBP=OFF
         -DWEBP_BUILD_IMG2WEBP=OFF
+        -DWEBP_BUILD_VWEBP=OFF
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
     INSTALL_COMMAND ${EXEC} ninja -C <BINARY_DIR> install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
