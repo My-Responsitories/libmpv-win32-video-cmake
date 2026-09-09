@@ -2,7 +2,6 @@ set_property(DIRECTORY PROPERTY EP_STEP_TARGETS download)
 include(${PROJECT_SOURCE_DIR}/cmake/packages_check.cmake)
 list(APPEND ep
     gmp
-    xz
     lzo
     uchardet
     libsamplerate
@@ -10,7 +9,6 @@ list(APPEND ep
     zlib
     zstd
     bzip2
-    libjpeg
     lcms2
     ogg
     vorbis
@@ -21,7 +19,6 @@ list(APPEND ep
     libvpx
     xvidcore
     game-music-emu
-    libpng
     x264
     x265
     libiconv
@@ -29,7 +26,6 @@ list(APPEND ep
     expat
     nettle
     mbedtls
-    libxml2
     brotli
     freetype2
     libudfread
@@ -49,17 +45,11 @@ list(APPEND ep
     xxhash
     dav1d
     libwebp
-    vapoursynth
     libbs2b
     openssl
-    libssh
-    libsrt
-    libarchive
     highway
-    libjxl
     uavs3d
     davs2
-    angle-headers
     mujs
     spirv-headers
     spirv-tools
@@ -80,7 +70,6 @@ list(APPEND ep
     libsixel
     ffmpeg
     mpv
-    mpv-release
     mpv-packaging
     curl
     flac

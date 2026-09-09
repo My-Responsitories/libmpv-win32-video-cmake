@@ -15,21 +15,15 @@ execute_process(COMMAND ${PREFIX_DIR}/src/get_latest_tag.sh
 
 ExternalProject_Add(mpv-release
     DEPENDS
-        angle-headers
         ffmpeg
         fribidi
         lcms2
-        libarchive
         libass
-        libjpeg
-        libpng
         uchardet
         shaderc
         spirv-cross
         vulkan
-        shaderc
         libplacebo
-        spirv-cross
     URL ${LINK}
     SOURCE_DIR ${SOURCE_LOCATION}
     CONFIGURE_COMMAND ${EXEC} CONF=1 meson setup <BINARY_DIR> <SOURCE_DIR>
@@ -54,7 +48,8 @@ ExternalProject_Add(mpv-release
         -Dspirv-cross=enabled
         -Dvulkan=disabled
         -Dvapoursynth=disabled
-        ${mpv_gl}
+        -Dgl=disabled
+        -Degl-angle=disabled
         -Dc_args='-Wno-error=int-conversion'
     BUILD_COMMAND ${EXEC} LTO_JOB=1 ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""

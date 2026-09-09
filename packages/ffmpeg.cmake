@@ -3,18 +3,12 @@ ExternalProject_Add(ffmpeg
         amf-headers
         avisynth-headers
         ${nvcodec_headers}
-        bzip2
         lcms2
-        openssl
-        libssh
-        libsrt
         libass
         libmodplug
-        libpng
         libsoxr
         libbs2b
         libwebp
-        libzimg
         libmysofa
         fontconfig
         harfbuzz
@@ -22,8 +16,6 @@ ExternalProject_Add(ffmpeg
         speex
         vorbis
         libvpl
-        libjxl
-        libxml2
         shaderc
         libplacebo
         dav1d
@@ -90,18 +82,13 @@ ExternalProject_Add(ffmpeg
         --enable-optimizations
         --enable-runtime-cpudetect
 
-        --enable-openssl
-        --enable-libssh
+        --enable-schannel
 
         --enable-libdav1d
-
-        --enable-libjxl
 
         --enable-libvpl
         --enable-libbs2b
         --enable-libwebp
-        --enable-libzimg
-        --enable-libxml2
         --enable-libsoxr
         --enable-libspeex
         --enable-libmysofa
@@ -113,7 +100,6 @@ ExternalProject_Add(ffmpeg
         --enable-avcodec
         --enable-avfilter
         --enable-avformat
-        --enable-avdevice
         --enable-swscale
         --enable-swresample
 
@@ -135,7 +121,6 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=libdav1d
         --enable-decoder=theora
         --enable-decoder=msmpeg*
-        --enable-decoder=mjpeg*
         --enable-decoder=wmv*
 
         --enable-decoder=aac*
@@ -157,7 +142,6 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=shorten
         --enable-decoder=tak
         --enable-decoder=tta
-        --enable-decoder=vorbis
         --enable-decoder=wavpack
         --enable-decoder=wma*
         --enable-decoder=pcm*
@@ -178,17 +162,6 @@ ExternalProject_Add(ffmpeg
         --enable-decoder=webvtt
         --enable-decoder=movtext
 
-        --enable-decoder=mjpeg
-        --enable-decoder=ljpeg
-        --enable-decoder=jpegls
-        --enable-decoder=jpeg2000
-        --enable-decoder=png
-        --enable-decoder=gif
-        --enable-decoder=bmp
-        --enable-decoder=tiff
-        --enable-decoder=webp
-        --enable-decoder=jpegls
-
         --enable-demuxer=concat
         --enable-demuxer=data
         --enable-demuxer=flv
@@ -204,12 +177,13 @@ ExternalProject_Add(ffmpeg
         --enable-demuxer=hevc
         --enable-demuxer=rtsp
         --enable-demuxer=mpeg4
-        --enable-demuxer=mjpeg*
         --enable-demuxer=avi
         --enable-demuxer=av1
         --enable-demuxer=matroska
         --enable-demuxer=dash
         --enable-demuxer=webm_dash_manifest
+
+        --enable-muxer=webp
 
         --enable-demuxer=aac
         --enable-demuxer=ac3
@@ -225,7 +199,6 @@ ExternalProject_Add(ffmpeg
         --enable-demuxer=m4v
         --enable-demuxer=mp3
         --enable-demuxer=mpc*
-        --enable-demuxer=ogg
         --enable-demuxer=pcm*
         --enable-demuxer=rm
         --enable-demuxer=shorten
@@ -247,7 +220,6 @@ ExternalProject_Add(ffmpeg
         --enable-demuxer=subviewer1
         --enable-demuxer=vplayer
 
-        --enable-parser=h263
         --enable-parser=h264
         --enable-parser=hevc
         --enable-parser=mpeg4
@@ -261,44 +233,32 @@ ExternalProject_Add(ffmpeg
         --enable-parser=gsm
         --enable-parser=mpegaudio
         --enable-parser=tak
-        --enable-parser=vorbis
         --enable-parser=dca
 
         --enable-filter=overlay
         --enable-filter=equalizer
+        --enable-filter=aresample
+        --enable-filter=dynaudnorm
+        --enable-filter=loudnorm
+        --enable-filter=alimiter
 
         --enable-protocol=async
         --enable-protocol=cache
         --enable-protocol=crypto
         --enable-protocol=data
-        --enable-protocol=ffrtmphttp
         --enable-protocol=file
         --enable-protocol=ftp
-        --enable-protocol=hls
         --enable-protocol=http
         --enable-protocol=httpproxy
         --enable-protocol=https
-        --enable-protocol=pipe
-        --enable-protocol=rtmp
-        --enable-protocol=rtmps
-        --enable-protocol=rtmpt
-        --enable-protocol=rtmpts
-        --enable-protocol=rtp
         --enable-protocol=subfile
         --enable-protocol=tcp
         --enable-protocol=tls
-        --enable-protocol=srt
-        --enable-protocol=udp
 
-        --enable-encoder=mjpeg
-	--enable-encoder=ljpeg
-	--enable-encoder=jpegls
-	--enable-encoder=jpeg2000
-	--enable-encoder=png
-	--enable-encoder=jpegls
+        --enable-encoder=webp_anim
 
         --enable-network
-        
+
         ${ffmpeg_cuda}
         ${ffmpeg_lto}
         --extra-cflags='-Wno-error=int-conversion'
