@@ -16,10 +16,6 @@ list(APPEND ep
     opus
     libmodplug
     libvpx
-    xvidcore
-    game-music-emu
-    x264
-    x265
     libiconv
     fribidi
     expat
@@ -51,14 +47,11 @@ list(APPEND ep
     glslang
     vulkan-header
     vulkan
-    libsdl2
-    libopenmpt
     shaderc
     glad
     fast_float
     libdovi
     libplacebo
-    libva
     ffmpeg
     mpv
     mpv-packaging

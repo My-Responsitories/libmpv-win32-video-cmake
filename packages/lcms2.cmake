@@ -1,6 +1,5 @@
 ExternalProject_Add(lcms2
     DEPENDS
-        zlib
     GIT_REPOSITORY https://github.com/mm2/Little-CMS.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
